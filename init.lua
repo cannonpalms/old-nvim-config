@@ -5,13 +5,12 @@
 -- normal format is "key = value". These also handle array like data structures
 -- where a value with no key simply has an implicit numeric key
 local config = {
-
 	-- Configure AstroNvim updates
 	updater = {
 		remote = "origin", -- remote to use
-		channel = "nightly", -- "stable" or "nightly"
-		version = "latest", -- "latest", tag name, or regex search like "v1.*" to only do updates before v2 (STABLE ONLY)
-		branch = "nightly", -- branch name (NIGHTLY ONLY)
+		channel = "stable", -- "stable" or "nightly"
+		version = "v2.*", -- "latest", tag name, or regex search like "v1.*" to only do updates before v2 (STABLE ONLY)
+		branch = "main", -- branch name (NIGHTLY ONLY)
 		commit = nil, -- commit hash (NIGHTLY ONLY)
 		pin_plugins = nil, -- nil, true, false (nil will pin plugins on stable only)
 		skip_prompts = false, -- skip prompts about breaking changes
@@ -24,10 +23,8 @@ local config = {
 		--   ["remote3"] = "github_user", -- GitHub user assume AstroNvim fork
 		-- },
 	},
-
 	-- Set colorscheme to use
 	colorscheme = "default_theme",
-
 	-- Override highlight groups in any theme
 	highlights = {
 		-- duskfox = { -- a table of overrides/changes to the default
@@ -40,7 +37,6 @@ local config = {
 			return highlights
 		end,
 	},
-
 	-- set vim options here (vim.<first_key>.<second_key> =  value)
 	options = {
 		opt = {
@@ -74,7 +70,6 @@ local config = {
 		"    ██  ██ ██  ██  ██  ██ ██  ██  ██",
 		"    ██   ████   ████   ██ ██      ██",
 	},
-
 	-- Default theme configuration
 	default_theme = {
 		-- set the highlight style for diagnostic messages
@@ -105,13 +100,11 @@ local config = {
 			["which-key"] = true,
 		},
 	},
-
 	-- Diagnostics configuration (for vim.diagnostics.config({...}))
 	diagnostics = {
 		virtual_text = true,
 		underline = true,
 	},
-
 	-- Extend LSP configuration
 	lsp = {
 		-- enable servers that you already have installed without mason
@@ -155,7 +148,6 @@ local config = {
 			-- }
 		},
 	},
-
 	-- Mapping data with "desc" stored directly by vim.keymap.set().
 	--
 	-- Please use this mappings table to set keyboard mapping since this is the
@@ -178,7 +170,6 @@ local config = {
 			-- ["<esc>"] = false,
 		},
 	},
-
 	-- Configure plugins
 	plugins = {
 		init = {
@@ -244,7 +235,8 @@ local config = {
 			end
 			return config -- return final config table to use in require("null-ls").setup(config)
 		end,
-		treesitter = { -- overrides `require("treesitter").setup(...)`
+		treesitter = {
+			-- overrides `require("treesitter").setup(...)`
 			ensure_installed = { "lua" },
 			config = function()
 				local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
@@ -259,12 +251,12 @@ local config = {
 		["mason-tool-installer"] = { -- overrides `require("mason-tool-installer").setup(...)`
 			ensure_installed = { "prettier", "stylua" },
 		},
-		packer = { -- overrides `require("packer").setup(...)`
+		packer = {
+			-- overrides `require("packer").setup(...)`
 			compile_path = vim.fn.stdpath("data") .. "/packer_compiled.lua",
 			log = { level = "debug" },
 		},
 	},
-
 	-- LuaSnip Options
 	luasnip = {
 		-- Add paths for including more VS Code style snippets in luasnip
@@ -274,7 +266,6 @@ local config = {
 			javascript = { "javascriptreact" },
 		},
 	},
-
 	-- CMP Source Priorities
 	-- modify here the priorities of default cmp sources
 	-- higher value == higher priority
@@ -289,7 +280,6 @@ local config = {
 			path = 250,
 		},
 	},
-
 	-- Modify which-key registration (Use this with mappings table in the above.)
 	["which-key"] = {
 		-- Add bindings which show up as group name
@@ -305,7 +295,6 @@ local config = {
 			},
 		},
 	},
-
 	-- This function is run last and is a good place to configuring
 	-- augroups/autocommands and custom filetypes also this just pure lua so
 	-- anything that doesn't fit in the normal config locations above can go here

@@ -182,6 +182,13 @@ local config = {
 	plugins = {
 		init = {
 			{ "google/vim-jsonnet" },
+			{
+				"ruifm/gitlinker.nvim",
+				requires = "nvim-lua/plenary.nvim",
+				config = function()
+					require("gitlinker").setup()
+				end,
+			},
 			-- { "nvim-lua/plenary.nvim" },
 			-- You can disable default plugins as follows:
 			-- ["goolord/alpha-nvim"] = { disable = true },

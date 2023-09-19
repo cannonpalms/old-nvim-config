@@ -182,6 +182,7 @@ local config = {
 	plugins = {
 		init = {
 			{ "google/vim-jsonnet" },
+			{ "aklt/plantuml-syntax" },
 			{
 				"ruifm/gitlinker.nvim",
 				requires = "nvim-lua/plenary.nvim",

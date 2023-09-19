@@ -190,6 +190,7 @@ local config = {
 					require("gitlinker").setup()
 				end,
 			},
+			-- { "cappyzawa/starlark.vim" },
 			-- { "nvim-lua/plenary.nvim" },
 			-- You can disable default plugins as follows:
 			-- ["goolord/alpha-nvim"] = { disable = true },
@@ -343,6 +344,20 @@ local config = {
 			group = "libsonnet",
 			pattern = { "*.jsonnet", "*.libsonnet" },
 			command = "setfiletype jsonnet",
+		})
+
+		-- vim.api.nvim_create_augroup("starlark", { clear = true })
+		-- vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+		-- 	desc = "Highlight starlark as python",
+		-- 	group = "starlark",
+		-- 	pattern = { "Tiltfile" },
+		-- 	command = "setfiletype python",
+		-- })
+
+		vim.filetype.add({
+			filename = {
+				["Tiltfile"] = "python",
+			},
 		})
 
 		-- Set up custom filetypes

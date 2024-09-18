@@ -7,13 +7,13 @@
 return {
 	-- Configure AstroNvim updates
 	updater = {
-		remote = "origin",     -- remote to use
-		channel = "stable",    -- "stable" or "nightly"
-		version = "v3.*",      -- "latest", tag name, or regex search like "v1.*" to only do updates before v2 (STABLE ONLY)
-		branch = "main",       -- branch name (NIGHTLY ONLY)
-		commit = nil,          -- commit hash (NIGHTLY ONLY)
-		pin_plugins = nil,     -- nil, true, false (nil will pin plugins on stable only)
-		skip_prompts = false,  -- skip prompts about breaking changes
+		remote = "origin", -- remote to use
+		channel = "stable", -- "stable" or "nightly"
+		version = "v3.*", -- "latest", tag name, or regex search like "v1.*" to only do updates before v2 (STABLE ONLY)
+		branch = "main", -- branch name (NIGHTLY ONLY)
+		commit = nil, -- commit hash (NIGHTLY ONLY)
+		pin_plugins = nil, -- nil, true, false (nil will pin plugins on stable only)
+		skip_prompts = false, -- skip prompts about breaking changes
 		show_changelog = true, -- show the changelog after performing an update
 		-- remotes = { -- easily add new remotes to track
 		--   ["remote_name"] = "https://remote_url.come/repo.git", -- full remote url
@@ -40,7 +40,7 @@ return {
 		formatting = {
 			-- control auto formatting on save
 			format_on_save = {
-				enabled = true,     -- enable or disable format on save globally
+				enabled = true, -- enable or disable format on save globally
 				allow_filetypes = { -- enable format on save for specified filetypes only
 					-- "go",
 				},
@@ -81,7 +81,7 @@ return {
 	-- anything that doesn't fit in the normal config locations above can go here
 	polish = function()
 		-- allow autocommands that deal with filetypes to show messages
-		vim.opt_global.shortmess:remove "F"
+		vim.opt_global.shortmess:remove("F")
 
 		vim.api.nvim_create_augroup("libsonnet", { clear = true })
 		vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
@@ -91,11 +91,11 @@ return {
 			command = "setfiletype jsonnet",
 		})
 
-		vim.filetype.add {
+		vim.filetype.add({
 			filename = {
 				["Tiltfile"] = "python",
 			},
-		}
+		})
 
 		-- Set up custom filetypes
 		-- vim.filetype.add {
